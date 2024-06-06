@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Ticket Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Flight Ticket Price Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="company">Departure Airport Code:</label>
+        <input type="text" id="company" name="company" required><br><br>
+        <label for="ticker">Arrival Airport Code:</label>
+        <input type="text" id="ticker" name="ticker" required><br><br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if plot_url %}
+        <h2>Predicted Ticket Prices</h2>
+        <img src="{{ plot_url }}" alt="Ticket Price Plot">
+    {% endif %}
+    {% if price %}
+        <h2>{{ price }}</h2>
+    {% endif %}
+</body>
+</html>
