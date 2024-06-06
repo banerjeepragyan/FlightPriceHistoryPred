@@ -1,6 +1,8 @@
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
+import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
 
@@ -21,6 +23,22 @@ def create_test_dataset(data, time_step):
             a = arr[i:(i+time_step)]
             X.append(a)
     return np.array(X)
+
+# Plot the predicted prices
+def plot_predictions(test_data, predictions, time_step):
+    for i in range(test_data.shape[0]):
+        plt.figure(figsize=(10, 6))
+        actual_prices = test_data[i, time_step:]
+        predicted_prices = predictions[i, :len(actual_prices)]
+        # dates = pd.date_range(start=pd.Timestamp.today(), periods=len(actual_prices), freq='D')
+        dates = np.arange(1, len(actual_prices)+1)
+        plt.plot(dates, actual_prices, label='Actual Prices', color='blue')
+        plt.plot(dates, predicted_prices, label='Predicted Prices', color='red')
+        plt.title(f'Company {i+1} Stock Prices')
+        plt.xlabel('Date')
+        plt.ylabel('Price')
+        plt.legend()
+        plt.show()
 
 time_step = 10
 X_test = create_test_dataset(test_data_normalized, time_step)
@@ -55,3 +73,5 @@ print(predictions_original_scale[:, time_step:])
 # Calculate overall RMSE
 rmse = np.sqrt(mean_squared_error(test_data[:, time_step:], predictions_original_scale[:, time_step:]))
 print("Overall RMSE:", rmse)
+
+plot_predictions(test_data, predictions_original_scale, time_step)
