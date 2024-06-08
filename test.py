@@ -8,7 +8,6 @@ from sklearn.metrics import mean_squared_error
 
 # Load the testing data from a .npy file
 test_data = np.load('test.npy')
-
 org_shape = test_data.shape
 
 # Normalize the test data using the same scaler used for training data
@@ -34,13 +33,13 @@ def plot_predictions(test_data, predictions, time_step):
         dates = np.arange(1, len(actual_prices)+1)
         plt.plot(dates, actual_prices, label='Actual Prices', color='blue')
         plt.plot(dates, predicted_prices, label='Predicted Prices', color='red')
-        plt.title(f'Company {i+1} Stock Prices')
+        plt.title(f'Flight {i+1} Ticket Prices')
         plt.xlabel('Date')
         plt.ylabel('Price')
         plt.legend()
         plt.show()
 
-time_step = 10
+time_step = 3
 X_test = create_test_dataset(test_data_normalized, time_step)
 
 # Reshape input to be [samples, time steps, features]
