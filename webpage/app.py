@@ -12,7 +12,7 @@ from serpapi import GoogleSearch
 app = Flask(__name__)
 
 # Load the trained model
-model = load_model('../multi_rnn_model.h5')
+model = load_model('../flight_model.h5')
 
 # Function to predict future prices
 def predict_future_prices(data, model, time_step, days):
@@ -76,7 +76,7 @@ def predict():
     d = (datetime.strptime(date_str, "%Y-%m-%d").date() - datetime.today().date()).days
 
     # Predict the future prices
-    future_predictions_normalized = predict_future_prices(predict_data_normalized, model, time_step=10, days=d)
+    future_predictions_normalized = predict_future_prices(predict_data_normalized, model, time_step=3, days=d)
 
     # Reverse the normalization for predicted data
     padded_array = np.pad(future_predictions_normalized, (0, 61 - future_predictions_normalized.shape[0]), mode='constant', constant_values=1)
