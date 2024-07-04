@@ -94,7 +94,7 @@ def predict():
     dates = pd.date_range(start=pd.Timestamp.today() - timedelta(days=60), periods=61 + d, freq='D')
     
     plt.figure(figsize=(12, 6))
-    plt.plot(dates, all_prices, label='Stock Prices')
+    plt.plot(dates, all_prices, label='Ticket Prices')
     plt.axvline(x=dates[60], color='r', linestyle='--', label='Prediction Start')
     plt.title(f'Ticket Prices: Past 61 Days and Next {d} Days')
     plt.xlabel('Date')
