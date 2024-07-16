@@ -9,7 +9,7 @@ params = {
   "currency": "INR",
   "hl": "en",
   "type": "2",
-  "api_key": "8ff19b67f6340c26335822205ded1b109584575455d9af315afaecda9f567fe5"
+  "api_key": ""
 }
 
 search = GoogleSearch(params)
