@@ -1,14 +1,3 @@
 # FlightPriceHistoryPred
 
-suppose date of departure is a and current date is b
-data : b-61 to b = x
-interpolate it to a = y
-
-scrape data and pre-train model
-take input, get x and calculate y
-
-[4546 4546 4490 4490 4490 4490 4490 4490 4490 4490 4490 4490 5285 5285
-  5285 5285 5285 5285 5285 5285 5285 5285 5285 5285 5352 5248 5248 5351
-  5376 5351 5351 5351 5376 5248 5264 5248 5248 5264 5264 5264 5264 5264
-  5264 5369 5264 5264 5264 5264 5264 5264 5264 5264 5264 5264 5264 5503
-  5578 5353 5503 8575 9353]
+A web-based application to predict future prices of a flight based on the previous price history.
