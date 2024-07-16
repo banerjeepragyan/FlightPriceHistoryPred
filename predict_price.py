@@ -19,7 +19,7 @@ params = {
 "currency": "INR",
 "hl": "en",
 "type": "2",
-"api_key": "4ddc2ed2c3e52c83e1ccb052511e154ac18a7722b26e852e2ab446e31af1b6f4" #"8ff19b67f6340c26335822205ded1b109584575455d9af315afaecda9f567fe5"
+"api_key": ""
 }
 predict_data = []
 try:
